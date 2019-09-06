@@ -1,84 +1,37 @@
 mapshaper是用javascript开发的软件，可用于编辑shapefile、geojson、topojson等格式的数据。它的命令行支持必要的地图制作任务，如简化图像、编辑属性数据、裁剪、檫除、合并、过滤等。下面简单介绍mapshaper的安装、命令及使用。
-
-一、安装
-
+## 一、安装
 mapshaper的安装以Node.js为前提，Node安装后，即可使用其nmp安装最新版本的mapshaper。在下载的mapshaper的src路径下，执行以下命令语句：
 
- 
-
-npm install -g mapshaper
+`npm install -g mapshaper`
 
 若出现如下图所示 操作不被允许 的错误，请以管理员权限运行cmd命令。
-
 安装过程如下图所示：
-
-
- 
-
 安装过程中，若提示连接超时，重新尝试即可。安装完成后，出现如下所示的提示信息：
 
-
- 
-
- 
-
-二、命令
+## 二、命令
 
 若要查看mapshaper的命令，在cmd中输入命令mapshaper -h，则会列出mapshaper的所有命令，如下如所示：
-
- 
-
 由图可知，mapshaper的命令分为三类：I/O命令、编辑命令和信息类命令，下面分别介绍：
-
 I/O命名：表示文件输入/导出的命令，常见的数据转换，如shape转json、json转shape等操作属于此类；
-
 编辑命令：用于数据编辑的命令，常用的如裁剪(clip)、融合(dissolve)、擦除(erase)、简化(simplify)、连接(join)、合并(merge)、投影(proj)等属于此类；
-
 信息命令：表示数据或程序信息的命令，如计算（cal）、投影信息(projections)、版本信息(-version)等。
 
-三、使用
+## 三、使用
 
 mapshaper的使用有两种方式：
-
 1.在线方式：在 http://mapshaper.org上直接进行数据简化、格式转换等操作；
-
 2. 命令方式：在本机安装mapshaper后，即可通过cmd的方式调用上述介绍的命令，下面举例说明：
 
 （1）shape转geojson （属于I/O命令）
-
- 
-
-mapshaper shapefiles/*.shp -o output/ format=geojson
-
- 
-
+`mapshaper shapefiles/*.shp -o output/ format=geojson`
 表示将shapefiles文件夹下所有的shape文件转化成geojson文件，并存储到output文件夹下，json文件的命名与shape文件一致。
 
- 
-
 （2）裁剪（clip，属于编辑命令）
-
- 
-
-mapshaper usa_counties.shp -clip land-area.shp -o
-
- 
-
+`mapshaper usa_counties.shp -clip land-area.shp -o`
 表示用land-aera裁剪usa-counties。
 
- 
-
-（3）投影信息（projections，属于信息命令）
-
- 
-
-mapshaper -projections
-
- 
-
+ （3）投影信息（projections，属于信息命令）
+`mapshaper -projections`
 表示列出mapshaper支持的所有投影类别。
  
-
- 
-
 以上简单介绍了mapshaper的安装、命令及使用
